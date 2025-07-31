@@ -1,0 +1,1178 @@
+/* Base Color Variables (Light Mode Defaults) */
+:root {
+    --primary-blue: #0A7EAB; /* A more subdued, deep blue */
+    --accent-green: #28a745; /* Green for success/highlight */
+    --hover-blue: #076288; /* Darker professional blue for hover */
+
+    --bg-body: #f0f2f5; /* Very light grey for body background in light mode */
+    --bg-card: #ffffff; /* White background for cards/sections in light mode */
+    --bg-navbar: rgba(255, 255, 255, 0.9); /* Light transparent navbar */
+    --bg-input: #f0f0f0; /* Light input background */
+    --bg-footer: #e9ecef; /* Light footer background */
+
+    --text-heading: #343a40; /* Darker text for headings in light mode */
+    --text-body: #495057; /* Dark text for body in light mode */
+    --text-placeholder: #6c757d; /* Grey placeholder text */
+
+    --border-light: #dee2e6; /* Light border color */
+    --border-dark: #ced4da; /* Slightly darker border */
+
+    --shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode */
+    --shadow-medium: rgba(0, 0, 0, 0.15); /* Medium shadow */
+    --shadow-dark: rgba(0, 0, 0, 0.25); /* Stronger shadow */
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --logo-filter: none; /* No filter for logo in light mode */
+    --hero-gradient: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)); /* Light overlay for hero */
+    --hero-image: url('../img/i7.jpg');
+    --background-texture: url('../img/i6.png'); 
+}
+
+[data-theme="dark"] {
+--primary-blue: #0A7EAB; /* Keep accent blue consistent or adjust slightly */
+        --accent-green: #28a745;
+        --hover-blue: #076288;
+
+        --bg-body: #1A1A1A; /* Very dark background */
+        --bg-card: #252525; /* Darker background for cards/sections */
+        --bg-navbar: rgba(25, 25, 25, 0.9); /* Dark transparent navbar */
+        --bg-input: #333333; /* Dark input background */
+        --bg-footer: #0A0A0A; /* Even darker footer background */
+
+        --text-heading: #f0f0f0; /* Light text for headings */
+        --text-body: #e9ecef; /* Lighter text for body */
+        --text-placeholder: #aaaaaa; /* Lighter placeholder text */
+
+        --border-light: rgba(255, 255, 255, 0.15); /* Subtle white border */
+        --border-dark: rgba(255, 255, 255, 0.25);
+
+        --shadow-light: rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+        --shadow-medium: rgba(0, 0, 0, 0.5);
+        --shadow-dark: rgba(0, 0, 0, 0.6);
+
+        /* --logo-filter: invert(1) hue-rotate(180deg) brightness(1.2); Adjust for light logos on dark bg */
+        --hero-gradient: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)); /* Darker overlay for hero */
+        /* If you have a different dark mode background texture: */
+            --background-texture: url('../img/i8.png'); 
+}
+
+
+/* Dark Mode Overrides */
+[data-theme="dark"],
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-blue: #0A7EAB; /* Keep accent blue consistent or adjust slightly */
+        --accent-green: #28a745;
+        --hover-blue: #076288;
+
+        --bg-body: #1A1A1A; /* Very dark background */
+        --bg-card: #252525; /* Darker background for cards/sections */
+        --bg-navbar: rgba(25, 25, 25, 0.9); /* Dark transparent navbar */
+        --bg-input: #333333; /* Dark input background */
+        --bg-footer: #0A0A0A; /* Even darker footer background */
+
+        --text-heading: #f0f0f0; /* Light text for headings */
+        --text-body: #e9ecef; /* Lighter text for body */
+        --text-placeholder: #aaaaaa; /* Lighter placeholder text */
+
+        --border-light: rgba(255, 255, 255, 0.15); /* Subtle white border */
+        --border-dark: rgba(255, 255, 255, 0.25);
+
+        --shadow-light: rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+        --shadow-medium: rgba(0, 0, 0, 0.5);
+        --shadow-dark: rgba(0, 0, 0, 0.6);
+
+        --logo-filter: invert(1) hue-rotate(180deg) brightness(1.2); /* Adjust for light logos on dark bg */
+        --hero-gradient: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)); /* Darker overlay for hero */
+        /* If you have a different dark mode background texture: */
+        --background-texture: url('../img/i8.png');
+    }
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--text-body);
+    background-image: var(--background-texture);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background-color: var(--bg-body); /* Use variable for background */
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth transition */
+}
+.theme-reset {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+/* Headings inherit new font */
+h1, h2, h3, h4, h5, h6, .text-big, .section-tag, .address-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-heading); /* Use variable for heading color */
+    line-height: 1.2;
+    transition: color 0.4s ease; /* Smooth transition */
+}
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg-navbar); /* Use variable for navbar background */
+    box-shadow: 0 4px 15px var(--shadow-medium); /* Use variable for shadow */
+    height: 80px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-light); /* Use variable for border */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; /* Smooth transition */
+}
+
+.logo {
+    flex: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    filter: var(--logo-filter); /* Use variable for logo filter */
+    transition: filter 0.4s ease; /* Smooth transition */
+}
+
+.nav-list {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 40px;
+    padding-right: 0;
+}
+
+.nav-list li a {
+    color: var(--text-heading); /* Use heading text color for nav links */
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.nav-list li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--hover-blue); /* Use hover color */
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-list li a:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-list li a:hover {
+    color: var(--text-light); /* Should remain light/white on dark background of hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px var(--shadow-dark); /* Use darker shadow for hover */
+}
+
+.rightNav {
+    flex: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
+#search {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    background-color: var(--bg-input); /* Use input background variable */
+    border: 1px solid var(--border-dark); /* Use border variable */
+    outline: none;
+    color: var(--text-body); /* Use body text color for input */
+    box-shadow: inset 0 1px 6px var(--shadow-light); /* Use light shadow for inset */
+    transition: all 0.3s ease;
+}
+#search::placeholder {
+    color: var(--text-placeholder); /* Use placeholder text color */
+}
+#search:focus {
+    background-color: var(--bg-input); /* Maintain input background on focus */
+    border-color: var(--primary-blue); /* Use primary blue for border */
+    box-shadow: 0 0 0 3px rgba(10, 126, 171, 0.4); /* Matching primary blue focus glow */
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 50%; /* Make it round */
+    background-color: var(--primary-blue);
+    color: var(--text-heading); /* White/light icon */
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-medium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px; /* Fixed size */
+    height: 45px; /* Fixed size */
+}
+
+.theme-toggle:hover {
+    background-color: var(--hover-blue);
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px var(--shadow-dark);
+}
+
+/* --- First Section (Hero) --- */
+.background {
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+}
+
+.firstSection {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hero-gradient), var(--hero-image) no-repeat center center/cover; /* Use variables */
+    background-attachment: fixed;
+    transition: background 0.4s ease; /* Smooth transition */
+}
+
+.box-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-body); /* Use body text color */
+    max-width: 1300px;
+    width: 90%;
+    margin: auto;
+    height: 93%;
+    padding: 40px;
+    gap: 60px;
+    background-color: var(--bg-card); /* Use card background for box-main */
+    border-radius: 20px;
+    box-shadow: 0 15px 45px var(--shadow-dark); /* Use darker shadow */
+    border: 1px solid var(--border-light); /* Use light border */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; /* Smooth transition */
+}
+
+.firstHalf {
+    flex: 1;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 30px;
+}
+
+.secondHalf {
+    flex: 0 0 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.secondHalf img {
+    width: 100%;
+    max-width: 500px;
+    border: 5px solid var(--primary-blue); /* Use primary blue for border */
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 10px 30px var(--shadow-dark); /* Use darker shadow */
+    transition: transform 0.3s ease, border-color 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
+}
+.secondHalf img:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.text-big {
+    font-size: 3.8rem;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    font-weight: 800;
+    text-shadow: 2px 2px 6px var(--shadow-light); /* Use light shadow for text */
+}
+
+.text-small {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    font-weight: 300;
+    color: var(--text-body); /* Use body text color */
+    text-shadow: 1px 1px 4px var(--shadow-light); /* Use light shadow for text */
+}
+
+.buttons {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 35px;
+    border: 2px solid var(--primary-blue); /* Use primary blue */
+    border-radius: 10px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--primary-blue); /* Use primary blue */
+    color: var(--text-heading); /* White/light text for buttons */
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(10, 126, 171, 0.4); /* Matching shadow */
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--primary-blue); /* Primary blue text on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(10, 126, 171, 0.6);
+    border-color: var(--hover-blue);
+}
+
+.btn-sm {
+    padding: 10px 22px;
+    font-size: 1rem;
+    background-color: var(--accent-green); /* Use accent green */
+    color: var(--text-heading);
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 3px 12px rgba(40, 167, 69, 0.4);
+}
+
+.btn-sm:hover {
+    background-color: transparent;
+    color: var(--accent-green);
+    border-color: var(--accent-green);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+}
+
+
+/* --- General Sections (Content on Both Sides) --- */
+.section {
+    min-height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1300px;
+    width: 90%;
+    margin: 120px auto;
+    background-color: var(--bg-card); /* Use card background */
+    color: var(--text-body);
+    padding: 70px 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px var(--shadow-dark); /* Use darker shadow */
+    gap: 70px;
+    border: 1px solid var(--border-light); /* Use light border */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, color 0.4s ease; /* Smooth transition */
+}
+
+.section-left {
+    flex-direction: row-reverse;
+}
+
+.paras {
+    flex: 1;
+    min-width: 400px;
+    padding: 0 25px;
+}
+
+.section-tag {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    color: var(--primary-blue); /* Use primary blue */
+    font-weight: 800;
+    line-height: 1.2;
+    text-shadow: 2px 2px 6px var(--shadow-light); /* Use light shadow for text */
+}
+
+.section-sub-tag {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-body); /* Use body text color */
+    font-weight: 300;
+    text-shadow: 1px 1px 4px var(--shadow-light); /* Use light shadow for text */
+}
+
+.thumbnail {
+    flex: 0 0 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.thumbnail img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border: 4px solid var(--primary-blue); /* Use primary blue */
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px var(--shadow-dark); /* Use darker shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; /* Smooth transition */
+}
+.thumbnail img:hover {
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 0 20px 50px var(--shadow-dark); /* Even deeper hover shadow */
+}
+
+
+/* --- Contact Section --- */
+.contact-section {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    background: var(--hero-gradient), var(--hero-image) no-repeat center center/cover; /* Use variables */
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+    transition: background 0.4s ease; /* Smooth transition */
+}
+
+.contact-container {
+    width: 600px;
+    max-width: 90%;
+    background-color: var(--bg-card); /* Use card background */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 15px 45px var(--shadow-dark); /* Use darker shadow */
+    padding: 60px;
+    border: 1px solid var(--border-light); /* Use light border */
+    overflow: hidden;
+    margin-bottom: 60px;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; /* Smooth transition */
+}
+
+.contact-container h2 {
+    color: var(--primary-blue); /* Use primary blue */
+    text-transform: uppercase;
+    padding-bottom: 35px;
+    font-size: 3.5em;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-shadow: 2px 2px 6px var(--shadow-light); /* Use light shadow for text */
+}
+
+.form-group {
+    width: 95%;
+    margin: 30px 0;
+    position: relative;
+    border-bottom: 2px solid var(--border-dark); /* Use darker border */
+}
+
+.form-group input,
+.description-field {
+    width: 100%;
+    height: 55px;
+    background-color: var(--bg-input); /* Use input background */
+    border: 1px solid var(--border-light); /* Use light border */
+    outline: none;
+    font-size: 1.2rem;
+    color: var(--text-body); /* Use body text color */
+    padding: 0 50px 0 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.form-group input::placeholder,
+.description-field::placeholder {
+    color: var(--text-placeholder); /* Use placeholder text color */
+}
+.form-group input:focus,
+.description-field:focus {
+    border-color: var(--primary-blue); /* Use primary blue */
+    background-color: var(--bg-input); /* Maintain input background on focus */
+    box-shadow: 0 0 0 3px rgba(10, 126, 171, 0.4); /* Matching primary blue glow */
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--text-placeholder); /* Use placeholder text color for labels */
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus ~ label,
+.form-group input:valid ~ label,
+.form-group input:not(:placeholder-shown) ~ label {
+    top: -20px;
+    font-size: 0.95em;
+    color: var(--primary-blue); /* Primary blue for active label */
+    background-color: var(--bg-card); /* Match card background for label background */
+    padding: 0 8px;
+    border-radius: 5px;
+}
+
+.form-group i {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: var(--text-placeholder); /* Use placeholder text color for icons */
+    font-size: 1.4em;
+}
+
+.description-field {
+    height: 180px;
+    padding: 20px;
+    margin-top: 35px;
+    resize: vertical;
+}
+
+.button-wrapper {
+    width: 95%;
+    margin-top: 50px;
+}
+
+#submit-btn {
+    width: 100%;
+    height: 65px;
+    border-radius: 35px;
+    border: none;
+    font-size: 1.45rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: var(--primary-blue); /* Use primary blue */
+    color: var(--text-heading); /* White/light text for buttons */
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(10, 126, 171, 0.4); /* Matching shadow */
+}
+
+#submit-btn:hover {
+    background-color: var(--hover-blue); /* Use hover blue */
+    box-shadow: 0 12px 35px rgba(10, 126, 171, 0.6);
+    transform: translateY(-5px);
+}
+
+/* --- Location Section (within contact page) --- */
+.location-section {
+    padding: 100px 0;
+    background-color: var(--bg-card); /* Consistent card background */
+    color: var(--text-body);
+    margin-top: 60px;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px var(--shadow-dark); /* Use darker shadow */
+    border: 1px solid var(--border-light); /* Use light border */
+    width: 90%;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, color 0.4s ease; /* Smooth transition */
+}
+
+.section-heading {
+    font-size: 4em;
+    margin-bottom: 70px;
+    color: var(--primary-blue); /* Use primary blue */
+    text-align: center;
+    font-weight: 800;
+    text-shadow: 2px 2px 6px var(--shadow-light); /* Use light shadow for text */
+}
+
+.location-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1300px;
+    margin: auto;
+    padding: 50px;
+    background-color: var(--bg-card); /* Consistent card background */
+    box-shadow: 0 15px 45px var(--shadow-dark); /* Use darker shadow */
+    border-radius: 20px;
+    gap: 50px;
+    border: 1px solid var(--border-light); /* Use light border */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; /* Smooth transition */
+}
+
+.map-container {
+    flex: 1 1 650px;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iframe-map {
+    width: 100%;
+    height: 550px;
+    border: 4px solid var(--primary-blue); /* Use primary blue */
+    border-radius: 20px;
+    box-shadow: 0 0 25px var(--shadow-dark); /* Use darker shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; /* Smooth transition */
+}
+
+.iframe-map:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 40px var(--shadow-dark); /* Even deeper hover shadow */
+}
+
+.address-details {
+    flex: 1 1 450px;
+    padding: 25px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.address-title {
+    font-size: 3em;
+    margin-bottom: 25px;
+    color: var(--primary-blue); /* Use primary blue */
+    font-weight: 800;
+    text-shadow: 2px 2px 6px var(--shadow-light); /* Use light shadow for text */
+}
+
+.address-text {
+    font-size: 1.25em;
+    line-height: 1.8;
+    color: var(--text-body); /* Use body text color */
+    text-shadow: 1px 1px 4px var(--shadow-light); /* Use light shadow for text */
+}
+
+.spacer {
+    height: 80px;
+    background-color: transparent;
+}
+
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--bg-footer); /* Use footer background */
+    color: var(--text-body);
+    padding: 70px 0 30px;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-top: 80px;
+    border-top: 1px solid var(--border-light); /* Use light border */
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease; /* Smooth transition */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 25px;
+    gap: 40px;
+}
+
+.footer-container > div {
+    flex: 1;
+    min-width: 280px;
+    margin-bottom: 35px;
+}
+
+.site-footer h3 {
+    color: var(--primary-blue); /* Use primary blue */
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.site-footer h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-blue); /* Use primary blue */
+    border-radius: 2px;
+}
+
+.footer-about p {
+    color: var(--text-body); /* Use body text color */
+    margin-bottom: 25px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.social-icon {
+    color: var(--text-heading); /* Light text for icons */
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--bg-input); /* Use input background for social icons */
+    border: 1px solid var(--border-light); /* Use light border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--shadow-light); /* Use light shadow */
+}
+
+.social-icon:hover {
+    background-color: var(--primary-blue); /* Use primary blue on hover */
+    color: var(--text-heading);
+    transform: translateY(-6px) scale(1.12);
+    box-shadow: 0 0 30px var(--shadow-dark); /* Use darker shadow */
+    border-color: var(--primary-blue);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 15px;
+}
+
+.footer-links ul li a {
+    color: var(--text-body); /* Use body text color */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: block;
+    padding: 5px 0;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-blue); /* Use primary blue on hover */
+    transform: translateX(10px);
+}
+
+.footer-contact p {
+    color: var(--text-body); /* Use body text color */
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-contact p i {
+    margin-right: 12px;
+    font-size: 1.2em;
+    color: var(--primary-blue); /* Use primary blue for icons */
+    margin-top: 4px;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid var(--border-dark); /* Use darker border */
+    padding-top: 30px;
+    margin-top: 60px;
+    color: var(--text-placeholder); /* Use placeholder text color for copyright */
+    font-size: 0.9rem;
+}
+
+.footer-bottom p {
+    margin-bottom: 12px;
+}
+/* Add this to your css/style.css file */
+mark.highlight {
+    background-color: yellow; /* Or any color you prefer for highlighting */
+    color: black;
+    padding: 0 2px; /* Small padding for better visibility */
+    border-radius: 2px;
+}
+
+/* Responsive adjustments for footer */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-container > div {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .site-footer h3 {
+        text-align: center;
+    }
+
+    .site-footer h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-contact p {
+        justify-content: center;
+    }
+
+    .footer-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 30px;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 0;
+    }
+}
+
+/* --- Responsive adjustments --- */
+@media screen and (max-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .logo-img {
+        height: 50px;
+    }
+
+    .nav-list {
+        width: 100%;
+        flex-direction: column;
+        padding: 0;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .nav-list li a {
+        font-size: 0.98rem;
+        padding: 6px 12px;
+    }
+
+    .rightNav {
+        width: 90%;
+        margin-top: 20px;
+        flex-direction: row;
+        justify-content: center;
+        padding-right: 0;
+        gap: 10px; /* Adjust gap for smaller screens */
+    }
+
+    #search {
+        width: 60%;
+        font-size: 0.95rem;
+        padding: 8px 15px;
+    }
+
+    .btn-sm {
+        font-size: 0.95rem;
+        padding: 8px 15px;
+    }
+    .theme-toggle { /* Adjust for smaller screens */
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .firstSection {
+        height: auto;
+        min-height: 90vh;
+        padding: 80px 20px;
+    }
+
+    .box-main {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 40px;
+        max-width: 95%;
+        gap: 40px;
+    }
+
+    .firstHalf,
+    .secondHalf {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        min-width: unset;
+    }
+    .firstHalf {
+        margin-top: 30px;
+    }
+
+    .secondHalf img {
+        max-width: 350px;
+        border-width: 3px;
+    }
+
+    .text-big {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+
+    .text-small {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 40px;
+    }
+    .btn {
+        width: 85%;
+        max-width: 320px;
+        font-size: 1.05rem;
+        padding: 12px 30px;
+    }
+
+    /* Sections */
+    .section {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 50px 30px;
+        max-width: 95%;
+        margin: 80px auto;
+        gap: 40px;
+    }
+
+    .section-left {
+        flex-direction: column-reverse;
+    }
+
+    .paras {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    .section-tag {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .section-sub-tag {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .thumbnail {
+        width: 100%;
+        flex: none;
+        padding: 0;
+    }
+
+    .thumbnail img {
+        width: 90%;
+        max-width: 450px;
+        margin: 0 auto;
+        border-width: 3px;
+    }
+
+    .contact-container {
+        width: 90%;
+        padding: 40px;
+    }
+
+    .contact-container h2 {
+        font-size: 2.8em;
+        padding-bottom: 25px;
+    }
+
+    .form-group,
+    .description-field,
+    .button-wrapper {
+        width: 98%;
+    }
+
+    .form-group input,
+    .description-field {
+        font-size: 1.1rem;
+        height: 50px;
+        padding: 0 40px 0 15px;
+    }
+
+    .form-group label {
+        font-size: 1.1rem;
+        left: 15px;
+    }
+
+    .form-group input:focus ~ label,
+    .form-group input:valid ~ label,
+    .form-group input:not(:placeholder-shown) ~ label {
+        top: -18px;
+        font-size: 0.9em;
+        padding: 0 6px;
+    }
+
+    .form-group i {
+        font-size: 1.2em;
+        right: 15px;
+    }
+
+    #submit-btn {
+        font-size: 1.2rem;
+        height: 55px;
+        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+    }
+
+    .location-main {
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .map-container,
+    .address-details {
+        flex: 1 1 100%;
+        padding: 20px;
+    }
+
+    .iframe-map {
+        height: 400px;
+        border-width: 3px;
+    }
+
+    .address-title {
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .address-text {
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    .section-heading {
+        font-size: 3em;
+        margin-bottom: 50px;
+    }
+
+    .site-footer {
+        padding: 40px 15px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo-img {
+        height: 40px;
+    }
+    .nav-list li a {
+        font-size: 0.9rem;
+    }
+    .rightNav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #search {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .btn-sm {
+        width: 100%;
+        max-width: 160px;
+    }
+    .text-big {
+        font-size: 2.2rem;
+    }
+    .text-small {
+        font-size: 1rem;
+    }
+    .btn {
+        width: 95%;
+        max-width: 250px;
+    }
+    .section-tag {
+        font-size: 2rem;
+    }
+    .section-sub-tag {
+        font-size: 1rem;
+    }
+    .contact-container {
+        width: 98%;
+        padding: 30px;
+    }
+    .contact-container h2 {
+        font-size: 2.5em;
+    }
+    #submit-btn {
+        font-size: 1.1rem;
+    }
+    .iframe-map {
+        height: 300px;
+    }
+    .location-section {
+        padding: 60px 0;
+    }
+    .address-title {
+        font-size: 2em;
+    }
+    .address-text {
+        font-size: 1em;
+    }
+    .section-heading {
+        font-size: 2.5em;
+    }
+}

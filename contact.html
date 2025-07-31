@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Sankalp - Contact Us</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar background">
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                <img src="img/i1.png" alt="Shree Sankalp Logo" class="logo-img">
+            </a>
+        </div>
+
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="campus.html">Campus</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="rightNav">
+            <input type="text" name="search" id="search" placeholder="Search...">
+            <button class="btn btn-sm">Search</button>
+<button id="theme-toggle" class="btn btn-sm theme-toggle">
+    <i class="fas fa-sun"></i>
+</button>
+        <button id="reset-theme" class="theme-reset btn btn-sm" title="Follow system theme" ><i class="fa-solid fa-gears"></i>auto theme</button>
+        </div>
+    </nav>
+
+    <section class="location-section" id="contact-location">
+        <h2 class="section-heading text-center">Our Location</h2>
+        <div class="location-main">
+            <div class="map-container">
+                <iframe class="iframe-map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.933306917631!2d72.50853417539423!3d23.026136179165688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e86d2d4c0c1b7%3A0x6b7b2b6b2b6b2b6b!2sShree%20Sankalp%20Institute!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="address-details">
+                <h3 class="address-title">Shree Sankalp</h3>
+                <p class="address-text">3rd Floor, Vrindavan Mall, Nr. Parivar Cross Road, Above Sasumaa'S Restaurant,
+                    Beside Nayara Petrol Pump, Waghdia Dabhoi Road, Vadodara, Gujarat, India - 390025</p>
+            </div>
+        </div>
+    </section>
+    <div class="spacer"></div>
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2 class="text-center">Contact Us</h2>
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="e6e41e8d-e5b2-4f98-b63e-09aa4ccfcfef">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Name</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">Phone</label>
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <textarea class="description-field" placeholder="Description" name="message" id="message"
+                    rows="4"></textarea>
+                <div class="button-wrapper">
+                    <button type="submit" id="submit-btn">Submit Form</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Shree Sankalp</h3>
+                <p>Empowering young minds with a holistic education rooted in wisdom and modern learning. Preparing students for a successful future.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="campus.html">Campus</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 School Lane, Education City, State, ZIP 12345</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> info@ssvschool.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © <span id="current-year"></span> Shree Sankalp. All rights reserved.</p>
+            <p>Developed by - Vishwakarma Cyber Technologies</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+<script src="js/script.js"></script>
+</body>
+
+</html>
